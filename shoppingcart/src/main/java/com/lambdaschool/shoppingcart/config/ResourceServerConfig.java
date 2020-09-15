@@ -29,9 +29,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         //** means everything after that
         http.authorizeRequests().antMatchers("/","/h2-console/**","/swagger" +
                         "-resources/**","/swagger-resource/**","/swagger-ui.html",
-                "/v2/api-docs","/webjars/**","/createnewuser").permitAll()
+                "/v2/api-docs","/webjars/**","/createnewuser","/user").permitAll()
                 .antMatchers("/logout").authenticated()
-                .antMatchers("/users/**").hasAnyRole("ADMIN","USER","DATA")
+                .antMatchers("/users/**").hasAnyRole("ADMIN","USER")
                 .antMatchers("/roles/**").hasAnyRole("ADMIN")
                 .and()
                 .exceptionHandling()
